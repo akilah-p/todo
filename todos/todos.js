@@ -24,7 +24,7 @@ todoForm.addEventListener('submit', async (e) => {
 
     await createTodo(todo);
 
-    todoForm.reset()
+    todoForm.reset();
     displayTodos();
     // on submit, create a todo, reset the form, and display the todos
 });
@@ -62,6 +62,9 @@ async function displayTodos() {
 // add page load function
 // fetch the todos and store in state
 // call displayTodos
+window.addEventListener('load', async () => {
+    displayTodos();
+});
 
 logoutButton.addEventListener('click', () => {
     logout();

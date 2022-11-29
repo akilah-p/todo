@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const SUPABASE_URL = 'https://gxwgjhfyrlwiqakdeamc.supabase.co';
 const SUPABASE_KEY =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNjQxMTMxMiwiZXhwIjoxOTUxOTg3MzEyfQ.PHekiwfLxT73qQsLklp0QFEfNx9NlmkssJFDnlvNIcA';
@@ -28,6 +29,7 @@ export async function deleteAllTodos() {
     // delete all todos for this user in supabase
 
     // once you have a response from supabase, comment this back in:
+    // eslint-disable-next-line no-undef
     return checkError(response);
 }
 
@@ -40,12 +42,12 @@ export async function getTodos() {
 
 export async function completeTodo(id) {
     const response = await client
-        .from('todos');
+        .from('todos')
         .update({ complete: true })
         .match({
             user_id: client.auth.user().id,
             id: id,
-        })
+        });
     // find the and update (set complete to true), the todo that matches the correct id
 
     // once you have a response from supabase, comment this back in:
@@ -88,5 +90,6 @@ export async function logout() {
 }
 
 function checkError({ data, error }) {
+    // eslint-disable-next-line no-console
     return error ? console.error(error) : data;
 }
