@@ -22,7 +22,7 @@ export async function createTodo(todo) {
 }
 
 export async function deleteAllTodos() {
-    await client
+    const response = await client
         .from('todos')
         .delete()
         .match({ user_id: client.auth.user().id });
