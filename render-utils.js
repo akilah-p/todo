@@ -1,4 +1,4 @@
-export function renderTodo(todo, handleComplete) {
+export function renderTodo(todo) {
     const div = document.createElement('div');
     const p = document.createElement('p');
 
